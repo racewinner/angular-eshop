@@ -1,4 +1,5 @@
 import { Component, signal, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ProductService } from '../../../../core/services/product.service';
 import { 
   SingleProduct,
@@ -7,7 +8,7 @@ import {
 
 @Component({
   selector: 'app-product',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product.html',
   styleUrl: './product.scss'
 })
@@ -26,6 +27,7 @@ export class Product implements OnInit {
     this.productService.getProducts().subscribe({
       next: (response: ProductsResponse) => {
         this.products.set(response.products);
+        debugger
       },
       error: (error: any) => {
         alert(error);

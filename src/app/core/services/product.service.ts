@@ -19,7 +19,7 @@ export class ProductService {
 
   getProducts(): Observable<ProductsResponse> {
     debugger
-    return this.http.get<ProductsResponse>(`${this.API_URL}/api/product/getproducts`).pipe(
+    return this.http.get<ProductsResponse>(`${this.API_URL}/api/product/get_products`).pipe(
       catchError((error: any) => {
         return of({
           products: []

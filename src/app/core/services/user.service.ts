@@ -50,4 +50,18 @@ export class UserService {
   getUsers() {
     return this.http.get<UserRegister>(`${this.API_URL}/api/product/get_products`)
   }
+
+  isLoggedIn(): boolean {
+    const authenticated = false;
+
+    if (!authenticated) {
+      const token = this.tokenService.getToken();
+
+      if (token) {
+        return true;
+      }
+    }
+
+    return authenticated;
+  }
 }

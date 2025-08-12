@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,11 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./feature/dashboard/dashboard.routes').then(m => m.routes)
+    loadChildren: () => import('./feature/dashboard/dashboard.routes').then(m => m.routes),
+    canActivate: [authGuard]
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];

@@ -19,5 +19,14 @@ export class TokenService {
     }
   }
 
+  /**
+   * Get JWT token from localStorage
+   */
+  getToken(): string | null {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(this.TOKEN_KEY);
+    }
+    return null;
+  }
   
 }

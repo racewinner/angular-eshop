@@ -3,6 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: 'landing',
     loadComponent: () => import('./feature/landing/landing').then(m => m.Landing)
   },
   {
